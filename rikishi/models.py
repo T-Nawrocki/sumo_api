@@ -45,3 +45,7 @@ class Rikishi(models.Model):
   height = models.IntegerField(validators=[MinValueValidator(150), MaxValueValidator(250)])
   weight = models.DecimalField(max_digits=4, decimal_places=1)
   origin = models.CharField(max_length=100)
+  
+  def __str__(self):
+      return f'{self.shikona_first} {self.shikona_last}'
+  
