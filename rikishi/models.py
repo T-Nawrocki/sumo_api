@@ -2,7 +2,6 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils.translation import gettext_lazy as _
 
-# Create your models here.
 class Rikishi(models.Model):
   
   class Rank(models.TextChoices):
@@ -47,5 +46,9 @@ class Rikishi(models.Model):
   origin = models.CharField(max_length=100)
   
   def __str__(self):
-      return f'{self.shikona_first} {self.shikona_last}'
+    return self.shikona()
   
+  def shikona(self):
+    return f'{self.shikona_first} {self.shikona_last}'
+  
+
