@@ -1,3 +1,6 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'rikishi/style.css' %}">
+
 <h1>{{ rikishi.shikona }}</h1>
 
 <h2>{{ rank }}</h2>
@@ -8,3 +11,5 @@
 <p><b>Height:</b> {{ rikishi.height }}
 <p><b>Weight:</b> {{ rikishi.weight }}
 <p><b>Origin:</b> {{ rikishi.origin }}
+
+<p><a href="{% url 'rikishi:index' %}">Home</a></p>
