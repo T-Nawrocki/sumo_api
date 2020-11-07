@@ -2,9 +2,7 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils.translation import gettext_lazy as _
 
-class Rikishi(models.Model):
-  
-  class Rank(models.TextChoices):
+class Rank(models.TextChoices):
     YOKOZUNA = 'Y', _('Yokozuna')
     OZEKI = 'O', _('Ōzeki')
     SEKIWAKE = 'S', _('Sekiwake')
@@ -27,6 +25,8 @@ class Rikishi(models.Model):
     MAEGASHIRA_16 = 'M16', _('Maegashira 16')
     MAEGASHIRA_17 = 'M17', _('Maegashira 17')
     MAEGASHIRA_18 = 'M18', _('Maegashira 18')
+
+class Rikishi(models.Model):
   
   shikona_first = models.CharField(max_length=50)
   shikona_last = models.CharField(max_length=50)
@@ -49,6 +49,9 @@ class Rikishi(models.Model):
     return self.shikona()
   
   def shikona(self):
-    return f'{self.shikona_first} {self.shikona_last}'
+    return f'{ self.shikona_first } { self.shikona_last }'
+
+  def real_name(self):
+    return f'{ self.real_name_first } { self.real_name_last }'
   
 

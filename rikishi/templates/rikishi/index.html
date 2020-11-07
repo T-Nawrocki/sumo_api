@@ -1,0 +1,7 @@
+<ul>
+{% for rikishi in rikishi_list %}
+  <li>
+    <a href="/rikishi/{{ rikishi.id }}/">{{ rikishi.shikona }}</a>
+  </li>
+{% endfor %}
+</ul>
