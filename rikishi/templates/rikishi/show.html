@@ -6,6 +6,13 @@
 <h2>{{ rank }}</h2>
 
 <p><b>Career Record:</b> {{ rikishi.total_wins }}/{{ rikishi.total_losses }}/{{ rikishi.total_absent }}
+<p><b>Heya:</b> 
+  {% if rikishi.heya %}
+    {{ rikishi.heya }}
+  {% else %}
+    Not found
+  {% endif %}
+</p>
 <p><b>Real Name:</b> {{ rikishi.real_name }}
 <p><b>Date of Birth:</b> {{ rikishi.date_of_birth }}
 <p><b>Height:</b> {{ rikishi.height }}
