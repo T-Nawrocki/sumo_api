@@ -2,7 +2,7 @@ from django.http import Http404
 from django.shortcuts import render
 
 from .models import Rank, Rikishi
-from .utils import get_syllables
+from .utils import get_syllabic_anagrams
 
 def index(request):
   rikishi_list = Rikishi.objects.all()
@@ -18,11 +18,11 @@ def show(request, rikishi_id):
     raise Http404("Rikishi does not exist")
   
   rank = Rank(rikishi.highest_rank).label
-  syllables = get_syllables(rikishi.shikona_first)
+  anagrams = get_syllabic_anagrams(rikishi.shikona_first)
   context = {
     'rikishi': rikishi,
     'rank': rank,
-    'syllables': syllables
+    'anagrams': anagrams
   }
   return render(request, 'rikishi/show.html', context)
 
